@@ -10,11 +10,11 @@ http://dict.bing.com.cn/?view=touch
 Requirements
 ============
 
-- [vim-ref][]
+- [vim-ref][] by [thinca][]
 - `curl` OR `wget`
-- [webapi-vim][https://github.com/mattn/webapi-vim] by [mattn][]
-- [wwwrenderer-vim][https://github.com/mattn/wwwrenderer-vim] by [mattn][]
-- [OpenCC][opencc] (optional, for 簡繁轉換 only)
+- [webapi-vim][] by [mattn][]
+- [wwwrenderer-vim][] by [mattn][]
+- [OpenCC][opencc] (optional, for 簡繁轉換 only) by [BYVoid][]
 
 
 Status
@@ -23,6 +23,10 @@ Status
 Unstable, experimental.
 
 
-[vim-ref]: https://github.com/thinca/vim-ref
+[thinca]: http://d.hatena.ne.jp/thinca/
 [mattn]: http://mattn.kaoriya.net/
+[vim-ref]: https://github.com/thinca/vim-ref
+[webapi-vim]: https://github.com/mattn/webapi-vim
+[wwwrenderer-vim]: https://github.com/mattn/wwwrenderer-vim
 [opencc]: http://code.google.com/p/opencc/
+[BYVoid]: http://www.byvoid.com/
