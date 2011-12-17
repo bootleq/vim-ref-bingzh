@@ -1,10 +1,10 @@
 vim-ref-bingzh
 ==============
 
-A source of [vim-ref][] for Bing dictionary (English/Chinese).
+Bing dictionary (English/Chinese) source for [vim-ref][].
 
-Bing dictionary:
-http://dict.bing.com.cn/
+必应词典 智能手机版：
+http://dict.bing.com.cn/?view=touch
 
 
 Requirements
