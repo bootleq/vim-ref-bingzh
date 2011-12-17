@@ -9,12 +9,13 @@ let s:source = {'name': 'bingzh'}
 
 function! s:source.get_body(query) "{{{
   let view = 'touch'
+  let query = a:query
 
   " query 轉簡體
   if executable('opencc')
     let query = system(printf(
           \   "echo -n '%s' | opencc%s",
-          \   a:query,
+          \   query,
           \   ' --config=/usr/share/opencc/zht2zhs.ini'
           \ ))
   endif
