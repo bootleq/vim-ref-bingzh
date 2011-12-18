@@ -54,7 +54,8 @@ function! s:source.get_body(query) "{{{
 
   " 簡體 => 繁體
   if executable('opencc')
-    let result = system(printf("echo '%s' | opencc", result))
+    let cmd = printf("echo -n '%s' | opencc", substitute(result, "'", "''", 'g'))
+    let result = system(cmd)
   endif
 
   let result = s:after_formatter(result)
