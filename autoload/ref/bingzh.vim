@@ -23,7 +23,7 @@ function! s:source.get_body(query) "{{{
   let url = 'http://dict.bing.com.cn/?q='
         \ . query
         \ . (empty(view) ? '' : printf("&view=%s", view))
-  let g:dom = html#parseURL(url)
+  let g:dom = webapi#html#parseURL(url)
 
   let sections = [
         \   {'proSymbols': '發音'},
