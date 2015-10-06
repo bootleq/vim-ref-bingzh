@@ -14,7 +14,7 @@ Requirements
 - `curl` OR `wget`
 - [webapi-vim][] by [mattn][]
 - [wwwrenderer-vim][] by [mattn][]
-- [OpenCC][opencc] (optional, for 簡繁轉換 only) by [BYVoid][]
+- [OpenCC][] (optional, for 簡繁轉換 only) by [BYVoid][]
 
 
 Status
@@ -28,5 +28,5 @@ Unstable, experimental.
 [vim-ref]: https://github.com/thinca/vim-ref
 [webapi-vim]: https://github.com/mattn/webapi-vim
 [wwwrenderer-vim]: https://github.com/mattn/wwwrenderer-vim
-[opencc]: http://code.google.com/p/opencc/
+[OpenCC]: https://github.com/BYVoid/OpenCC
 [BYVoid]: http://www.byvoid.com/
