@@ -10,14 +10,14 @@ let s:source = {'name': 'bingzh'}
 function! s:source.get_body(query) "{{{
   let view = 'touch'
   let query = a:query
-  let config_file = ' --config=s2twp.json'
 
   " query 轉簡體
-  if executable('opencc') && filereadable(config_file)
+  let opencc_config_file = get(g:, 'ref_bingzh_opencc_config')
+  if executable('opencc') && filereadable(opencc_config_file)
     let query = system(printf(
           \   "echo -n '%s' | opencc%s",
           \   query,
-          \   config_file
+          \   ' --config=' . opencc_config_file 
           \ ))
   endif
 
@@ -54,7 +54,7 @@ function! s:source.get_body(query) "{{{
   let result = join(body, "\n")
 
   " 簡體 => 繁體
-  if executable('opencc') && filereadable(config_file)
+  if executable('opencc')
     let cmd = printf("echo -n '%s' | opencc", substitute(result, "'", "''", 'g'))
     let result = system(cmd)
   endif
