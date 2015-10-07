@@ -17,10 +17,13 @@ Requirements
 - [OpenCC][] (optional, for 簡繁轉換 only) by [BYVoid][]
 
 
-Status
-======
+Usage Example
+=============
 
-Unstable, experimental.
+```vim
+nnoremap <silent> <Leader>K :call ref#jump('normal', 'bingzh')<CR>
+xnoremap <silent> <Leader>K :call ref#jump('visual', 'bingzh')<CR>
+```
 
 
 [thinca]: http://d.hatena.ne.jp/thinca/
