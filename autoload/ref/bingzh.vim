@@ -11,13 +11,13 @@ function! s:source.get_body(query) "{{{
   let view = 'touch'
   let query = a:query
 
-  " query 轉簡體
+  " query，繁體需轉為簡體
   let opencc_config_file = get(g:, 'ref_bingzh_opencc_config')
-  if executable('opencc') && filereadable(opencc_config_file)
+  if executable('opencc') && !empty(opencc_config_file)
     let query = system(printf(
           \   "echo -n '%s' | opencc%s",
-          \   query,
-          \   ' --config=' . opencc_config_file 
+          \   webapi#http#encodeURI(query),
+          \   ' --config ' . opencc_config_file 
           \ ))
   endif
 
@@ -53,7 +53,7 @@ function! s:source.get_body(query) "{{{
 
   let result = join(body, "\n")
 
-  " 簡體 => 繁體
+  " 輸出時，簡體轉為繁體
   if executable('opencc')
     let cmd = printf("echo -n '%s' | opencc", substitute(result, "'", "''", 'g'))
     let result = system(cmd)
