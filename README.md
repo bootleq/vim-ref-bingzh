@@ -20,7 +20,7 @@ Requirements
 Usage Example
 =============
 
-- Mapping `<Leader>K` to translate current word.
+- Mapping `<Leader>K` to translate current word:
 
   ```vim
   nnoremap <silent> <Leader>K :call ref#jump('normal', 'bingzh')<CR>
@@ -28,15 +28,15 @@ Usage Example
   ```
 
 - *Tranditional Chinese* words must be converted into *Simplified Chinese*
-  before feed to bing dictionary. This requires a setting for [OpenCC][]
-  `t2s.json` config file.
+  before feeding to bing dictionary. This requires a setting to tell where the
+  [OpenCC][] `t2s.json` config file is:
 
   ```vim
   let g:ref_bingzh_opencc_config = '/usr/share/opencc/t2s.json'
   ```
 
 - If you installed opencc in default location, just tell which config should
-  be enough.
+  be enough:
 
   ```vim
   let g:ref_bingzh_opencc_config = 't2s.json'
