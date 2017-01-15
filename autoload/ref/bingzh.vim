@@ -24,7 +24,7 @@ function! s:source.get_body(query) "{{{
 
   " 輸出時，簡體轉為繁體
   if executable('opencc')
-    let cmd = printf("echo -n '%s' | opencc", substitute(result, "'", "''", 'g'))
+    let cmd = printf("echo -En '%s' | opencc", substitute(result, "'", '''"''"''', 'g'))
     let result = system(cmd)
   endif
 
