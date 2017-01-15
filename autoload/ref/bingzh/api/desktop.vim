@@ -75,10 +75,10 @@ endfunction
 function! s:format_function_pronounce(key, title, dom, query)
   let text = wwwrenderer#render_dom(a:dom)
   let text = s:strip_newline(text)
-  " 英 [same] 美 [same]  →  [same]
-  let variants = map(split(text, '\V]'), 'substitute(v:val, ".*\[", "", "")')
+  " show single item if 英／美 identical
+  let variants = map(split(text, '\v\] *'), 'substitute(v:val, ".*\[", "", "")')
   if len(uniq(variants)) == 1
-    text = variants[0]
+    let text = printf('[%s]', variants[0])
   endif
   return repeat(' ', 4) . text
 endfunction
