@@ -17,6 +17,12 @@ Requirements
 - [OpenCC][] (optional, for 簡繁轉換 only) by [BYVoid][]
 
 
+Screenshot
+==========
+
+![screenshot][]
+
+
 Usage Example
 =============
 
@@ -51,3 +57,4 @@ Usage Example
 [wwwrenderer-vim]: https://github.com/mattn/wwwrenderer-vim
 [OpenCC]: https://github.com/BYVoid/OpenCC
 [BYVoid]: http://www.byvoid.com/
+[screenshot]: http://3.bp.blogspot.com/-OgkV1QEWkQI/TuxnH2eBuhI/AAAAAAAABVA/4X0jbxJUnk4/s1600/ref-bingzh-full.png
