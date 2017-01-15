@@ -6,18 +6,25 @@ if exists('b:current_syntax')
   finish
 endif
 
+syntax match RefBingZhH1 /\v%1l/
+syntax match RefBingZhPronounce /\v  .*\[.+$/ contained containedin=RefBingZhH1
+syntax match RefBingZhError /\vResult not found.+/ contained containedin=RefBingZhH1
+
 syntax match RefBingZhH2 /\v^\k+\s##$/ contains=RefBingZhH2C
 syntax match RefBingZhH2C /\v\s##/ conceal contained
-syntax match RefBingZhH3 /\v^[^a-zA-Z0-9]+：/
-syntax match RefBingZhH3 /\v反義詞：/
+
+syntax region RefBingZhVariants start=_\v^詞型變化 ##_ end=_\n^\S_me=e-1 contains=RefBingZhH2
+syntax match RefBingZhVariantType /\v[^a-zA-Z0-9]+：/ contained containedin=RefBingZhVariants
 
 syntax match RefBingZhGrammarType /\v^\s*(n|na|v|v\.aux|vt|vi|adj|adv|advt|abb|conj|prep|pre|pro|web)\./
 syntax match RefBingZhRegionType /\v〈\k{1,2}〉/
 
+highlight link RefBingZhPronounce Comment
 highlight link RefBingZhH2 Statement
-highlight link RefBingZhH3 Special
+highlight link RefBingZhVariantType Special
 highlight link RefBingZhGrammarType Type
 highlight link RefBingZhRegionType Comment
+highlight link RefBingZhError WarningMsg
 
 let b:current_syntax = 'ref-bingzh'
 
