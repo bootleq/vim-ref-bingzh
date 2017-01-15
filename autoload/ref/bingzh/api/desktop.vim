@@ -27,6 +27,10 @@ function! ref#bingzh#api#desktop#query(query) "{{{
   let g:dom   = webapi#html#parse(webapi#http#get(url, {}, headers).content)
   let main    = g:dom.find('div', {'class': 'qdef'})
 
+  if empty(main)
+    return 'Result not found (' . a:query . ')'
+  endif
+
   let body = []
 	for section in s:SECTIONS
     let key    = get(keys(section), 0)
