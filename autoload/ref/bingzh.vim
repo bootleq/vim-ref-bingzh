@@ -20,7 +20,7 @@ function! s:source.get_body(query) "{{{
           \ ))
   endif
 
-  let result = ref#bingzh#api#touch#query(query)
+  let result = ref#bingzh#api#desktop#query(query)
 
   " 輸出時，簡體轉為繁體
   if executable('opencc')
