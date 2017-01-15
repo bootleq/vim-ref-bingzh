@@ -76,7 +76,7 @@ function! s:format_function_pronounce(key, title, dom, query)
   if len(uniq(variants)) == 1
     text = variants[0]
   endif
-  return '    ' . text
+  return repeat(' ', 4) . text
 endfunction
 
 " 定義
@@ -98,22 +98,18 @@ endfunction
 function! s:format_function_synonym(key, title, dom, query)
   let title = s:format_title(a:title)
   let content = wwwrenderer#render_dom(a:dom)
-  let content = s:strip_newline(content)
-  let content = s:flatten_comma_list(content)
-  let content = join(map(split(content, "\n"), "s:format_type_then_list(v:val)"), "\n")
+  let items = split(content, repeat("\n", 4))
+  let items = map(items, 's:strip_newline(v:val)')
+  let items = map(items, 's:flatten_comma_list(v:val)')
+  let items = map(items, 's:format_type_then_list(v:val)')
+  let content = join(items, "\n\n")
   let text = title . "\n" . content . "\n"
   return text
 endfunction
 
 " 反義詞
 function! s:format_function_antonym(key, title, dom, query)
-  let title = s:format_title(a:title)
-  let content = wwwrenderer#render_dom(a:dom)
-  let content = s:strip_newline(content)
-  let content = s:flatten_comma_list(content)
-  let content = join(map(split(content, "\n"), "s:format_type_then_list(v:val)"), "\n")
-  let text = title . "\n" . content . "\n\n"
-  return text
+  return s:format_function_synonym(a:key, a:title, a:dom, a:query)
 endfunction
 
 " 您找的是
@@ -121,7 +117,7 @@ function! s:format_function_suggest(key, title, dom, query)
   let title = s:format_title(a:title)
   let content = wwwrenderer#render_dom(a:dom)
   let content = s:squeeze_newline(content)
-  let content = substitute(content, '\v([\n\r\t])', '  ', 'g')
+  let content = substitute(content, '\v([\n\r\t])', repeat(' ', 4), 'g')
   return title . "\n" . content
 endfunction
 
@@ -136,13 +132,13 @@ endfunction
 function! s:format_type_then_list(text)
   let text = a:text
   let text = substitute(text, '^网络', 'web.', '')
-  let text = substitute(text, '\v^\w+\.', '\=printf("%4s ", submatch(0))', '')
+  let text = substitute(text, '\v^\w+\.', '\=printf("%5s ", submatch(0))', '')
   return text
 endfunction
 
 function! s:flatten_comma_list(text)
   let text = a:text
-  let text = substitute(text, ',\ze\w', '  ', 'g')
+  let text = substitute(text, ',\ze\w', repeat(' ', 4), 'g')
   return text
 endfunction
 

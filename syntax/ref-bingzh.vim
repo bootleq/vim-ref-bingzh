@@ -11,7 +11,7 @@ syntax match RefBingZhH2C /\v\s##/ conceal contained
 syntax match RefBingZhH3 /\v^[^a-zA-Z0-9]+：/
 syntax match RefBingZhH3 /\v反義詞：/
 
-syntax match RefBingZhGrammarType /\v^\s*(n|na|v|v\.aux|vt|vi|adj|adv|advt|abb|pre|pro|web)\./
+syntax match RefBingZhGrammarType /\v^\s*(n|na|v|v\.aux|vt|vi|adj|adv|advt|abb|conj|prep|pre|pro|web)\./
 syntax match RefBingZhRegionType /\v〈\k{1,2}〉/
 
 highlight link RefBingZhH2 Statement
