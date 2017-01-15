@@ -3,8 +3,8 @@ vim-ref-bingzh
 
 Bing dictionary (English/Chinese) source for [vim-ref][].
 
-必应词典 智能手机版：
-http://dict.bing.com.cn/?view=touch
+必应字典
+http://cn.bing.com/dict/
 
 
 Requirements
@@ -57,4 +57,4 @@ Usage Example
 [wwwrenderer-vim]: https://github.com/mattn/wwwrenderer-vim
 [OpenCC]: https://github.com/BYVoid/OpenCC
 [BYVoid]: http://www.byvoid.com/
-[screenshot]: http://3.bp.blogspot.com/-OgkV1QEWkQI/TuxnH2eBuhI/AAAAAAAABVA/4X0jbxJUnk4/s1600/ref-bingzh-full.png
+[screenshot]: https://raw.githubusercontent.com/bootleq/screenshots/master/vim-ref-bingzh/vim-ref-bingzh.png
