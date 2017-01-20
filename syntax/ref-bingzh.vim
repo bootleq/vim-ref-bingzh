@@ -13,14 +13,18 @@ syntax match RefBingZhError /\vResult not found.+/ contained containedin=RefBing
 syntax match RefBingZhH2 /\v^\k+\s##$/ contains=RefBingZhH2C
 syntax match RefBingZhH2C /\v\s##/ conceal contained
 
+syntax match RefBingZhSuggest /\v^\k+\s\V~~ / contains=RefBingZhSuggestC
+syntax match RefBingZhSuggestC /\V ~~/ conceal contained
+
 syntax region RefBingZhVariants start=_\v^詞型變化 ##_ end=_\n^\S_me=e-1 contains=RefBingZhH2
 syntax match RefBingZhVariantType /\v[^a-zA-Z0-9]+：/ contained containedin=RefBingZhVariants
 
-syntax match RefBingZhGrammarType /\v^\s*(n|na|v|v\.aux|vt|vi|adj|adv|advt|abb|conj|prep|pre|pro|web)\./
+syntax match RefBingZhGrammarType /\v^\s*(n|na|v|v\.aux|vt|vi|adj|adv|advt|abb|conj|prep|pre|pro|pron|web)\./
 syntax match RefBingZhRegionType /\v〈\k{1,2}〉/
 
 highlight link RefBingZhPronounce Comment
 highlight link RefBingZhH2 Statement
+highlight link RefBingZhSuggest Identifier
 highlight link RefBingZhVariantType Special
 highlight link RefBingZhGrammarType Type
 highlight link RefBingZhRegionType Comment
