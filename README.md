@@ -22,6 +22,9 @@ Screenshot
 
 ![screenshot][]
 
+Show suggestions:
+![snap-suggestion][]
+
 
 Usage Example
 =============
@@ -58,3 +61,4 @@ Usage Example
 [OpenCC]: https://github.com/BYVoid/OpenCC
 [BYVoid]: http://www.byvoid.com/
 [screenshot]: https://raw.githubusercontent.com/bootleq/screenshots/master/vim-ref-bingzh/vim-ref-bingzh.png
+[snap-suggestion]: https://raw.githubusercontent.com/bootleq/screenshots/master/vim-ref-bingzh/suggestion.png
