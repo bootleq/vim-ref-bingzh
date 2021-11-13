@@ -16,7 +16,7 @@ function! s:source.get_body(query) "{{{
     let query = system(printf(
           \   "echo -n '%s' | opencc%s",
           \   webapi#http#encodeURI(query),
-          \   ' --config ' . opencc_config_file 
+          \   ' --config ' . opencc_config_file
           \ ))
   endif
 
