@@ -8,7 +8,7 @@ http://cn.bing.com/dict/
 
 
 Requirements
-============
+------------
 
 - [vim-ref][] by [thinca][]
 - `curl` OR `wget`
@@ -18,7 +18,7 @@ Requirements
 
 
 Screenshot
-==========
+----------
 
 ![screenshot][]
 
@@ -27,7 +27,7 @@ Show suggestions:
 
 
 Usage Example
-=============
+-------------
 
 - Mapping `<Leader>K` to translate current word:
 
