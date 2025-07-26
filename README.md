@@ -4,7 +4,7 @@ vim-ref-bingzh
 Bing dictionary (English/Chinese) source for [vim-ref][].
 
 必应字典
-http://cn.bing.com/dict/
+https://cn.bing.com/dict/
 
 
 Requirements
@@ -53,12 +53,12 @@ Usage Example
 
 
 
-[thinca]: http://d.hatena.ne.jp/thinca/
-[mattn]: http://mattn.kaoriya.net/
+[thinca]: https://d.hatena.ne.jp/thinca/
+[mattn]: https://mattn.kaoriya.net/
 [vim-ref]: https://github.com/thinca/vim-ref
 [webapi-vim]: https://github.com/mattn/webapi-vim
 [wwwrenderer-vim]: https://github.com/mattn/wwwrenderer-vim
 [OpenCC]: https://github.com/BYVoid/OpenCC
-[BYVoid]: http://www.byvoid.com/
+[BYVoid]: https://www.byvoid.com/
 [screenshot]: https://raw.githubusercontent.com/bootleq/screenshots/master/vim-ref-bingzh/vim-ref-bingzh.png
 [snap-suggestion]: https://raw.githubusercontent.com/bootleq/screenshots/master/vim-ref-bingzh/suggestion.png

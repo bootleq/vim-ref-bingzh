@@ -21,8 +21,8 @@ let s:SECTION_NAMES = {
 
 
 function! ref#bingzh#api#desktop#query(query) "{{{
-  " Example request: curl "http://cn.bing.com/dict/search?q=demo" -H "Cookie: _EDGE_S=mkt=zh-cn"
-  let url     = 'http://cn.bing.com/dict/search?q=' . a:query
+  " Example request: curl "https://cn.bing.com/dict/search?q=demo" -H "Cookie: _EDGE_S=mkt=zh-cn"
+  let url     = 'https://cn.bing.com/dict/search?q=' . a:query
   let headers = {'Cookie': '_EDGE_S=mkt=zh-cn'}
   let g:dom   = webapi#html#parse(webapi#http#get(url, {}, headers).content)
   let main    = g:dom.find('div', {'class': 'qdef'})

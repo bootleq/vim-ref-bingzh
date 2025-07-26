@@ -1,3 +1,5 @@
+" NOTE: touch site is no longer available, we don't use this file
+
 function! ref#bingzh#api#touch#query(query) "{{{
   let url = 'http://dict.bing.com.cn/?q=' . a:query
   let g:dom = webapi#html#parseURL(url)
