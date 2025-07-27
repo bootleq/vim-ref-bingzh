@@ -17,6 +17,8 @@ let s:SECTION_NAMES = {
       \   'suggest': '您找的是'
       \ }
 
+let s:MAX_SUGGESTIONS = 13
+
 " }}} Constants
 
 
@@ -28,7 +30,7 @@ function! ref#bingzh#api#desktop#query(query) "{{{
   let main    = g:dom.find('div', {'class': 'qdef'})
 
   if empty(main)
-    return s:try_suggestions(g:dom, a:query)
+    return s:not_found(a:query)
   endif
 
   let body = []
@@ -63,41 +65,20 @@ function! ref#bingzh#api#desktop#query(query) "{{{
 endfunction "}}}
 
 
-function! s:try_suggestions(dom, query)
-  let sections = a:dom.findAll('div', {'class': 'dym_area'})
-  if !empty(sections)
-    let body = []
-    let index = 0
-    for sec in sections
-      let title = sec.find('div', {'class': 'df_wb_a'})
-      let title = substitute(wwwrenderer#render_dom(title), "\n", '', 'g')
-      call add(body, s:format_title(title))
+function! s:not_found(query)
+  let body = ['Result not found (' . a:query . ')']
 
-      let def_div = sec.find(
-            \   'div',
-            \   {'class': 'web_div' . (index == 0 ? '' : string(index)) }
-            \ )
-      if !empty(def_div)
-        let items = def_div.findAll('div', {'class': 'df_wb_c'})
-        if !empty(items)
-          for item in items
-            let dt = item.find('a')
-            let dt = s:strip_newline(wwwrenderer#render_dom(dt))
-            let dd = item.find('div', {'class': 'df_wb_text'})
-            let dd = s:strip_newline(wwwrenderer#render_dom(dd))
-            let text = dt . ' ~~ ' . dd
-            call add(body, text)
-          endfor
-        endif
-      endif
-
-      call add(body, '')
-      let index += 1
-    endfor
-    return join(body, "\n")
-  else
-    return 'Result not found (' . a:query . ')'
+  if exists("*spellsuggest")
+    let suggestions = spellsuggest(a:query, s:MAX_SUGGESTIONS)
+    if !empty(suggestions)
+      call extend(body, ['', '建議 ##', ''])
+      for sugg in suggestions
+        call add(body, printf('  %s', sugg))
+      endfor
+    endif
   endif
+
+  return join(body, "\n")
 endfunction
 
 

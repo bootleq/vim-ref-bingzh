@@ -22,7 +22,7 @@ Screenshot
 
 ![screenshot][]
 
-Show suggestions:
+Show suggestions: (**No longer work, the service has been dropped**)
 ![snap-suggestion][]
 
 
