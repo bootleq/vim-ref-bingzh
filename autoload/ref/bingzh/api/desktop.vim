@@ -82,44 +82,6 @@ function! s:not_found(query)
 endfunction
 
 
-function! s:try_suggestions(dom, query)
-  let sections = a:dom.findAll('div', {'class': 'dym_area'})
-  if !empty(sections)
-    let body = []
-    let index = 0
-    for sec in sections
-      let title = sec.find('div', {'class': 'df_wb_a'})
-      let title = substitute(wwwrenderer#render_dom(title), "\n", '', 'g')
-      call add(body, s:format_title(title))
-
-      let def_div = sec.find(
-            \   'div',
-            \   {'class': 'web_div' . (index == 0 ? '' : string(index)) }
-            \ )
-      if !empty(def_div)
-        let items = def_div.findAll('div', {'class': 'df_wb_c'})
-        if !empty(items)
-          for item in items
-            let dt = item.find('a')
-            let dt = s:strip_newline(wwwrenderer#render_dom(dt))
-            let dd = item.find('div', {'class': 'df_wb_text'})
-            let dd = s:strip_newline(wwwrenderer#render_dom(dd))
-            let text = dt . ' ~~ ' . dd
-            call add(body, text)
-          endfor
-        endif
-      endif
-
-      call add(body, '')
-      let index += 1
-    endfor
-    return join(body, "\n")
-  else
-    return 'Result not found (' . a:query . ')'
-  endif
-endfunction
-
-
 " Format Functions:  {{{
 
 " Header
