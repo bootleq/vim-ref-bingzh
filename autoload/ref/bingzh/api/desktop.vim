@@ -32,7 +32,7 @@ function! ref#bingzh#api#desktop#query(query) "{{{
   endif
 
   let body = []
-	for section in s:SECTIONS
+  for section in s:SECTIONS
     let key    = get(keys(section), 0)
     let title  = get(s:SECTION_NAMES, key, '')
     let val    = get(values(section), 0)
@@ -53,7 +53,7 @@ function! ref#bingzh#api#desktop#query(query) "{{{
         if get(option, 'inline', 0)
           let body[-1] = body[-1] . text
         else
-          call add(body, text) 
+          call add(body, text)
         endif
       endif
     endif
@@ -86,12 +86,12 @@ function! s:try_suggestions(dom, query)
             let dd = item.find('div', {'class': 'df_wb_text'})
             let dd = s:strip_newline(wwwrenderer#render_dom(dd))
             let text = dt . ' ~~ ' . dd
-            call add(body, text) 
+            call add(body, text)
           endfor
         endif
       endif
 
-      call add(body, '') 
+      call add(body, '')
       let index += 1
     endfor
     return join(body, "\n")
