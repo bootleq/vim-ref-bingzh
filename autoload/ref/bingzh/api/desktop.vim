@@ -17,6 +17,8 @@ let s:SECTION_NAMES = {
       \   'suggest': '您找的是'
       \ }
 
+let s:MAX_SUGGESTIONS = 13
+
 " }}} Constants
 
 
@@ -28,7 +30,7 @@ function! ref#bingzh#api#desktop#query(query) "{{{
   let main    = g:dom.find('div', {'class': 'qdef'})
 
   if empty(main)
-    return s:try_suggestions(g:dom, a:query)
+    return s:not_found(a:query)
   endif
 
   let body = []
@@ -61,6 +63,23 @@ function! ref#bingzh#api#desktop#query(query) "{{{
 
   return join(body, "\n")
 endfunction "}}}
+
+
+function! s:not_found(query)
+  let body = ['Result not found (' . a:query . ')']
+
+  if exists("*spellsuggest")
+    let suggestions = spellsuggest(a:query, s:MAX_SUGGESTIONS)
+    if !empty(suggestions)
+      call extend(body, ['', '建議 ##', ''])
+      for sugg in suggestions
+        call add(body, printf('  %s', sugg))
+      endfor
+    endif
+  endif
+
+  return join(body, "\n")
+endfunction
 
 
 function! s:try_suggestions(dom, query)
